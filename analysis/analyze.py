@@ -75,16 +75,20 @@ pn.to_csv(ROOT / "results/pos_neg_by_bucket_all_sales_feedback.csv")
 F = ROOT / "figures"
 plt.rcParams.update({"figure.dpi": 150, "font.size": 10})
 
-ax = src_counts.plot.barh(color=["#7f8c8d", "#2e86c1", "#bdc3c7"], figsize=(7, 3))
-ax.set_xlabel("Number of feedback entries"); ax.set_title("Figure 1. Captured feedback by source (N = %d)" % len(df))
-for i, v in enumerate(src_counts): ax.text(v + 1, i, str(v), va="center")
+sales = src_counts.drop("Received as a buyer (excluded)")
+sales_pct = (sales / sales.sum() * 100).round(1)
+sales_pct.index = ["eBay automated\n(problem-free transactions)", "Written by buyers"]
+ax = sales_pct.plot.barh(color=["#7f8c8d", "#2e86c1"], figsize=(7, 2.8))
+ax.set_xlim(0, 100); ax.set_xlabel("% of sales feedback")
+ax.set_title("Figure 1. Composition of sales feedback")
+for i, v in enumerate(sales_pct): ax.text(v + 1, i, f"{v:.1f}%", va="center")
 plt.tight_layout(); plt.savefig(F / "fig1_feedback_by_source.png"); plt.close()
 
-tc = theme_counts["comments_mentioning"][::-1]
+tc = theme_counts["pct_of_positive_comments"][::-1]
 ax = tc.plot.barh(color="#2e86c1", figsize=(7, 3.6))
-ax.set_xlabel("Positive buyer comments mentioning theme (n = %d)" % len(pos))
+ax.set_xlim(0, 100); ax.set_xlabel("%% of positive buyer-written comments mentioning theme (n = %d)" % len(pos))
 ax.set_title("Figure 2. What buyers wrote about")
-for i, v in enumerate(tc): ax.text(v + 0.3, i, str(v), va="center")
+for i, v in enumerate(tc): ax.text(v + 1, i, f"{v:.1f}%", va="center")
 plt.tight_layout(); plt.savefig(F / "fig2_theme_frequency.png"); plt.close()
 
 fig, ax = plt.subplots(figsize=(7, 3.6))
@@ -96,9 +100,15 @@ ax.set_ylabel("Mean VADER compound"); ax.set_title("Figure 3. Sentiment of writt
 for i, v in enumerate(by_bucket["mean_vader"]): ax.text(i, v + (0.05 if v >= 0 else -0.1), f"{v:.2f}", ha="center")
 plt.tight_layout(); plt.savefig(F / "fig3_sentiment_by_bucket.png"); plt.close()
 
-ax = pn.plot.bar(stacked=True, color={"positive": "#27ae60", "negative": "#c0392b"}, figsize=(7, 3.6), rot=0)
-ax.set_ylabel("Feedback entries (buyer-written + automated)")
-ax.set_title("Figure 4. Positive vs. negative feedback by eBay time bucket")
+pn_pct = pn.div(pn.sum(axis=1), axis=0) * 100
+pn_pct.to_csv(ROOT / "results/pos_neg_pct_by_bucket_all_sales_feedback.csv")
+ax = pn_pct.plot.bar(stacked=True, color={"positive": "#27ae60", "negative": "#c0392b"}, figsize=(7, 3.6), rot=0)
+ax.set_ylim(0, 105); ax.set_ylabel("% of sales feedback in bucket")
+ax.set_title("Figure 4. Positive vs. negative sales feedback by eBay time bucket")
+for i, v in enumerate(pn_pct["positive"]): ax.text(i, min(v, 100) + 1 if v > 0 else 1, f"{v:.0f}% positive", ha="center", fontsize=8)
+ax.legend(loc="lower right")
+ax.set_xticklabels([f"{k}\n(n = {n})" for k, n in zip(BUCKETS, pn.sum(axis=1))])
+ax.set_xlabel("")
 plt.tight_layout(); plt.savefig(F / "fig4_pos_neg_by_bucket.png"); plt.close()
 
 print(src_counts, "\n", theme_counts, "\n", by_bucket, "\n", pn)
