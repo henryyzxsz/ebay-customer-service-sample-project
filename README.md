@@ -1,4 +1,6 @@
-# What Builds Buyer Trust? A Consumer-Psychology Analysis of Customer Feedback at a Family-Run eBay Shop
+# eBay Customer Service Sample Project
+
+### What Builds Buyer Trust? A Consumer-Psychology Analysis of Customer Feedback at a Family-Run eBay Shop
 
 **Author:** Henry Zhang
 
