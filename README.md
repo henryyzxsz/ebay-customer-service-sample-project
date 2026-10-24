@@ -6,74 +6,66 @@
 
 ---
 
-## Abstract
+## What this is
 
-Online buyers must decide whether to trust sellers they never meet. This study examines the public feedback record of a small, family-run eBay resale shop (seller ID *zhashuzhan*; eBay Top Rated Seller; member since June 2015) to identify which aspects of the buying experience customers mention when they write feedback, and how consistent their satisfaction is over time. Buyer-written comments were coded with a transparent keyword codebook and scored with the VADER sentiment model. Of all captured sales feedback, 99.5% was positive, and 77.1% consisted of eBay-recorded, problem-free transactions. Among buyer-written comments, 97.7% were positive. Buyers most often mentioned shipping speed (54.8% of positive comments), the item matching its description (42.9%), and packaging (23.8%), and the mean sentiment of positive comments was strongly positive (VADER compound = 0.59). The shop's only negative entry, a non-delivery complaint, falls in eBay's "More than a year ago" period; eBay reports 100% positive feedback for the past 12 months. The findings suggest that, for this shop, buyer satisfaction is expressed mainly through reliability signals: fast shipping, accurate descriptions, careful packaging, and responsiveness when problems arise.
+My dad and I run a small eBay resale shop (seller ID *zhashuzhan*). We've been on eBay since June 2015, and the shop is a Top Rated Seller. I went through our public feedback to see what buyers actually talk about when they review us, and whether their happiness holds steady over time. Short version: 99.5% of our sales feedback is positive, and buyers mostly care about fast shipping, getting what was described, and good packaging.
 
-## Research Question
+## What I wanted to find out
 
-**When buyers of a small online shop leave feedback, which aspects of the transaction do they discuss, and how consistent is their satisfaction over time?**
+When buyers leave feedback for a small online shop, what do they talk about? And how steady is their satisfaction over time?
 
-The sellers' working view is that the shop maintains consistently strong reviews because it listens to its customers. This report treats that view as the sellers' practice and interpretation and asks what the public feedback record shows that is consistent with it; it does not test it as a proven cause.
+We've always felt our reviews stay strong because we listen to our customers. That's our own view, though. So I looked at what the feedback shows that lines up with it. I didn't try to prove it.
 
-## Background
+### Why trust matters
 
-Buying from a stranger online is fundamentally a problem of trust. Mayer, Davis, and Schoorman (1995) define trust as a willingness to be vulnerable to another party based on perceptions of that party's *ability*, *benevolence*, and *integrity*. In online marketplaces, buyers judge these qualities through signals such as reputation scores and the written experiences of previous buyers (Resnick & Zeckhauser, 2002).
+Buying from a stranger online takes trust. Psychologists describe trust as being willing to take a risk on someone because you believe they're capable, honest, and mean well (Mayer, Davis, & Schoorman, 1995). On eBay, buyers judge that mostly from a seller's ratings and what other buyers wrote (Resnick & Zeckhauser, 2002).
 
-Service-quality research provides a vocabulary for what buyers evaluate. The SERVQUAL model (Parasuraman, Zeithaml, & Berry, 1988) identifies five dimensions of service quality: *reliability* (delivering what was promised), *responsiveness* (willingness to help promptly), *assurance*, *empathy*, and *tangibles*. For an eBay seller, these map onto shipping speed and accurate descriptions (reliability), handling of problems and messages (responsiveness and empathy), and physical packaging (tangibles).
+A well-known model of service quality, SERVQUAL, breaks good service into five parts (Parasuraman, Zeithaml, & Berry, 1988). Two matter most here: *reliability* (doing what you promised) and *responsiveness* (helping quickly when something's wrong). For an eBay shop, that means shipping fast, describing items honestly, packing well, and handling problems.
 
-Feedback on eBay is known to be overwhelmingly positive (Resnick & Zeckhauser, 2002), so the *content* of written comments can be more informative than the share of positive ratings alone. This study therefore analyzes both: the overall consistency of the record and what buyers chose to write.
+eBay feedback is almost always positive (Resnick & Zeckhauser, 2002). So I didn't just count ratings. I also read what people actually wrote.
 
-## Method
+## How I did it
 
-### Data Source
+I saved our public feedback page. It listed 259 entries, and I captured 257 of them (2 didn't load). eBay doesn't show exact dates, just four time periods: *Past month*, *Past 6 months*, *Past year*, and *More than a year ago*. So any "over time" comparison uses those.
 
-The shop's public eBay feedback page was captured, yielding 257 of the 259 listed entries (2 entries could not be captured). Each entry includes the comment text, the rating (positive, neutral, or negative), and eBay's time period (*Past month*, *Past 6 months*, *Past year*, or *More than a year ago*); entries for sales also include the item and price. eBay displays only these time periods, not exact dates, so all comparisons over time use them. Profile-level figures (positive-feedback percentage, Detailed Seller Ratings, and Top Rated status) were taken from the same public profile and are saved in `data/profile_summary.json`.
+The entries came from three places:
 
-Entries were classified by source:
-
-| Source | n | Role in analysis |
+| Source | n | How I used it |
 |---|---|---|
-| Comments written by buyers of the shop | 43 | Theme coding and sentiment analysis (main sample) |
-| eBay automated feedback | 145 | Consistency measure (problem-free transactions) |
-| Feedback the account received *as a buyer* from other sellers | 69 | Excluded (not about this shop's service) |
+| Comments written by our buyers | 43 | Main sample: themes and sentiment |
+| eBay automated feedback | 145 | Counted as problem-free orders |
+| Feedback our account got as a *buyer* from other sellers | 69 | Left out (not about our shop) |
 
-*Note.* Buyer-written and automated entries together form the shop's **sales feedback** (n = 188). Of the 43 buyer-written comments, 42 were positive and 1 was negative.
+*Note.* Buyer comments plus automated feedback make up our **sales feedback** (n = 188). Of the 43 buyer comments, 42 were positive and 1 was negative.
 
-**eBay automated feedback.** eBay generates positive feedback automatically on the buyer's behalf for transactions completed without any reported issue; every such entry in this dataset reads "Order delivered on time with no issues." These entries contain no buyer-written opinion, so they were not coded for themes or sentiment. Instead, they were treated as a measure of consistency: each one records an order that was completed smoothly, with no problem reported.
+**About the automated feedback.** When an order goes through with no reported problem, eBay leaves positive feedback for the buyer automatically. Every one of these says "Order delivered on time with no issues." There's no buyer opinion in them, so I didn't treat them as reviews. I counted them as what they are: orders that went smoothly.
 
-Buyer usernames were removed during processing and do not appear anywhere in this repository.
+I removed all buyer usernames. They don't appear anywhere in this project.
 
-### Theme Coding
+**Themes.** I sorted each buyer comment into topics using a simple keyword list (`analysis/codebook.json`). The topics were shipping speed, communication/service, item as described/quality, packaging, price/value, would buy again/recommend, and general praise. One comment can hit more than one topic.
 
-Each buyer-written comment was coded for seven themes using a keyword codebook (`analysis/codebook.json`): shipping speed, communication/service, item as described/quality, packaging, price/value, would buy again/recommend, and general praise. A comment received a theme if any of that theme's keywords appeared, and a single comment could receive several themes. Keyword coding is transparent and reproducible but less nuanced than human coding (see Limitations).
+**Sentiment.** I ran each comment through VADER (Hutto & Gilbert, 2014), a free tool that scores how positive the wording is. The sentiment score goes from -1 (very negative) to 1 (very positive).
 
-### Sentiment Scoring
-
-Each buyer-written comment was scored with VADER (Hutto & Gilbert, 2014), a lexicon- and rule-based sentiment model designed for short, informal text. VADER's *compound* score ranges from −1 (most negative) to +1 (most positive).
-
-### Reproducing the Analysis
+To rerun everything:
 
 ```
 pip install -r requirements.txt
 python analysis/analyze.py
 ```
 
-The script produces the cleaned sample (`data/buyer_comments.csv`), summary tables (`results/`), and all figures (`figures/`).
+## What I found
 
-## Results
+### Buyers are happy, and it stays that way
 
-### Consistency of Satisfaction
+eBay shows us at **100% positive** for the past 12 months, with no neutral or negative ratings in the past 1, 6, or 12 months. All four detailed seller ratings (accurate description, shipping cost, shipping speed, and communication) sit at the full 5 stars.
 
-eBay reports **100% positive feedback** for the shop over the past 12 months, with **no neutral or negative ratings** in the past 1, 6, or 12 months. All four Detailed Seller Ratings (accurate description, reasonable shipping cost, shipping speed, and communication) are displayed at the maximum of 5 stars, and the shop holds eBay's Top Rated Seller status.
+In the feedback I captured, **99.5% of sales feedback was positive**. And **77.1%** of it was eBay's automated "no issues" feedback, while 22.9% was written by buyers. That means most of our orders went through without a single reported problem.
 
-In the captured sales feedback, **99.5% of entries were positive**. **77.1%** were eBay-recorded, problem-free transactions and 22.9% were comments written by buyers (Figure 1). The large share of automated entries indicates a high volume of orders completed without any reported issue, evidence of consistently smooth transactions.
+![Figure 1. Where our sales feedback comes from](figures/fig1_feedback_by_source.png)
 
-![Figure 1. Composition of sales feedback](figures/fig1_feedback_by_source.png)
+*Figure 1.* Where our sales feedback comes from (n = 188). Feedback we got as a buyer (n = 69) isn't included.
 
-*Figure 1.* Composition of the shop's sales feedback by source (n = 188). Feedback the account received as a buyer (n = 69) is excluded.
-
-**Table 1.** Positive sales feedback by eBay time period
+**Table 1.** Share of positive sales feedback in each eBay time period
 
 | eBay time period | % positive | n |
 |---|---|---|
@@ -82,17 +74,17 @@ In the captured sales feedback, **99.5% of entries were positive**. **77.1%** we
 | Past 6 months | 100.0% | 106 |
 | Past month | 100.0% | 18 |
 
-*Note.* Sales feedback includes buyer-written and eBay automated entries. The single entry in the earliest period is the shop's only negative feedback.
+*Note.* Includes buyer comments and automated feedback. The one entry in the oldest period is our only negative review.
 
-![Figure 2. Positive vs. negative sales feedback by eBay time period](figures/fig2_pos_neg_by_period.png)
+![Figure 2. Positive vs. negative feedback over time](figures/fig2_pos_neg_by_period.png)
 
-*Figure 2.* Percentage of positive and negative sales feedback in each eBay time period (n per period shown under each bar). See also Table 1.
+*Figure 2.* Positive vs. negative sales feedback in each eBay time period (n under each bar). Same data as Table 1.
 
-### What Buyers Wrote About
+### What buyers talk about
 
-**Table 2.** Themes in positive buyer-written comments
+**Table 2.** Topics in positive buyer comments
 
-| Theme | % of positive comments |
+| Topic | % of positive comments |
 |---|---|
 | General praise | 83.3% |
 | Shipping speed | 54.8% |
@@ -102,93 +94,91 @@ In the captured sales feedback, **99.5% of entries were positive**. **77.1%** we
 | Communication / service | 14.3% |
 | Would buy again / recommend | 7.1% |
 
-*Note.* n = 42 positive buyer-written comments. A comment can mention more than one theme, so percentages sum to more than 100%.
+*Note.* n = 42 positive buyer comments. Comments can mention more than one topic, so this adds up to more than 100%.
 
-Beyond general praise, **73.8%** of positive comments mentioned at least one concrete reliability or service theme (shipping speed, communication/service, accurate description, or packaging), and **50.0%** mentioned two or more specific themes (Figure 3).
+Besides general praise, **73.8%** of positive comments mentioned at least one specific thing we did well (shipping speed, communication/service, accurate description, or packaging). Half of them (**50.0%**) mentioned two or more.
 
 ![Figure 3. What buyers wrote about](figures/fig3_theme_frequency.png)
 
-*Figure 3.* Percentage of positive buyer-written comments mentioning each theme (n = 42).
+*Figure 3.* How often each topic shows up in positive buyer comments (n = 42).
 
-### Sentiment
+### How positive the wording is
 
-**Table 3.** Mean sentiment of buyer-written comments by eBay time period
+**Table 3.** Average sentiment score of buyer comments by eBay time period
 
-| eBay time period | Mean VADER compound | n |
+| eBay time period | Average sentiment score | n |
 |---|---|---|
 | More than a year ago | 0.273 | 1 |
 | Past year | 0.593 | 24 |
 | Past 6 months | 0.604 | 16 |
 | Past month | 0.442 | 2 |
 
-*Note.* VADER compound scores range from −1 (most negative) to +1 (most positive).
+*Note.* Sentiment score = how positive the wording is, from -1 to 1.
 
-The mean compound score across all positive buyer-written comments was 0.590. Sentiment was stable across the two periods with substantial samples (Past year, 0.593; Past 6 months, 0.604). The means for "Past month" and "More than a year ago" are based on too few comments to interpret.
+Across all positive comments, the average score was 0.590. It barely moved between the two periods with enough comments to compare (0.593 for Past year, 0.604 for Past 6 months). The other two periods have only 1 or 2 comments, which is too few to say anything.
 
-VADER scored the single negative comment as mildly *positive* (+0.273). Its text ("I never received the item on top of being charged…") states the problem factually and contains no strongly negative words, so the model missed a clearly negative experience. This illustrates that automated sentiment tools can misread complaints that are expressed without emotional language.
+One surprise: VADER scored our one negative comment as slightly *positive* (0.273). The buyer said "I never received the item on top of being charged…" in a flat, factual way, with no angry words. So the tool missed it. Tools like this can miss complaints that don't sound emotional.
 
-![Figure 4. Sentiment of buyer-written comments by eBay time period](figures/fig4_sentiment_by_period.png)
+![Figure 4. Sentiment score over time](figures/fig4_sentiment_by_period.png)
 
-*Figure 4.* Mean VADER compound score of buyer-written comments in each eBay time period (n per period shown under each bar).
+*Figure 4.* Average sentiment score of buyer comments in each eBay time period (n under each bar).
 
-### Representative Comments
+### In buyers' own words
 
-Comments are quoted verbatim, with original spelling and punctuation; the eBay time period is shown in brackets.
+These are copied exactly, typos and all. The time period is in brackets.
 
 1. *"Seller did everything right. My purchase arrived very quickly in 3 days! It however, did not work/power-on and a Return was quickly accepted by the seller."* [Past 6 months]
 2. *"An overall pleasant experience with the seller, good customer communication, thank you."* (excerpt) [Past 6 months]
 3. *"Great seller, good communication, and a pleasure to deal with. A+"* [Past year]
 4. *"Item as described, extremely well protected/ packaged. arrived in mint condition. Only complaint is user manual is in extremely small print ."* [Past month]
-5. *"I never received the item on top of being charged for the item as well."* [More than a year ago; the shop's only negative entry]
+5. *"I never received the item on top of being charged for the item as well."* [More than a year ago; our only negative review]
 
-## Discussion
+### What it means
 
-**Consistency.** The clearest finding is consistency. Every sales-feedback entry in the three most recent eBay periods is positive, eBay reports 100% positive feedback over the past 12 months, and more than three-quarters of all sales feedback (77.1%) records a transaction completed with no reported issue. The sentiment of buyer-written comments is also stable across the periods with enough data to compare. For a small family-run shop selling a wide range of consumer goods, sustaining this record is the study's central result.
+**We're consistent.** Every piece of sales feedback in the three most recent periods is positive. eBay has us at 100% positive for the past year. And 77.1% of our sales feedback is orders that went through with no problem at all. For a small family shop selling lots of different products, that steadiness is the main takeaway.
 
-**Reliability is what buyers notice.** When buyers chose to write feedback, they most often described reliability: the item arrived quickly (54.8%), matched its description (42.9%), and was well packaged (23.8%). In SERVQUAL terms, reliability and tangibles dominate. This fits the trust framework of Mayer et al. (1995), in which delivering exactly what was promised is direct evidence of a seller's ability and integrity.
+**Buyers notice reliability.** When people bothered to write something, they mostly said the item came fast (54.8%), matched the description (42.9%), and was packed well (23.8%). That's the "reliability" part of SERVQUAL. It also fits the trust research: doing exactly what you promised shows you're capable and honest (Mayer et al., 1995).
 
-**Responsiveness when something goes wrong.** Communication and service were mentioned less often (14.3%), but these comments carry particular weight. The most telling comment (Quote 1) describes a product that did not work, yet the buyer still left positive feedback, crediting the seller's quick acceptance of a return. This reflects the service-recovery pattern, in which a seller's response to a problem can matter as much as the problem itself. Communication is also displayed at the maximum 5-star Detailed Seller Rating.
+**How we handle problems counts.** Communication came up less often (14.3%), but those comments say a lot. In Quote 1, the item didn't even work, and the buyer still left positive feedback because we accepted the return quickly. Fixing a problem well can matter as much as the problem itself.
 
-**The single complaint.** The shop's only negative entry is a non-delivery complaint recorded "More than a year ago." Every sales-feedback entry in the later periods is positive. Because eBay's time periods are coarse and there is only one negative entry, this report does not claim that the shop's record changed *because of* that complaint. The pattern is, however, consistent with the sellers' account of how they responded to it, described in the next section.
+**The one complaint.** Our only negative review was about an order that never arrived, from "More than a year ago." Everything after it has been positive. With only one negative review and no exact dates, I can't say our record changed *because of* it. But it fits with what we did next, which is below.
 
-**Interpreting "we listen to our customers."** The sellers attribute their record to listening to customers. The feedback data supports the *outcome* side of this account (consistent satisfaction, maximum communication ratings, and buyers praising responsiveness), but as an observational record it cannot establish the cause.
+## What we do differently
 
-## Seller Practices Informed by Customer Experience
+*This part is our own account of what we do. It isn't something the feedback data can check.*
 
-*This section is based on the sellers' own account of their practices. It describes what the sellers report doing and was not independently verified from the feedback data.*
+Our only negative review came from a buyer who never got their order. After that, my dad and I focused on making sure every order gets where it's going:
 
-The shop's only negative feedback concerned an order that the buyer reported never receiving. The sellers report two practices aimed at ensuring that every order reaches its buyer reliably:
+1. **Clearer shipping labels.** We put money into a better printer so our shipping labels come out clearer. The goal is to cut down on delivery problems like the one that buyer had.
+2. **Keeping an eye on every order.** After that missed delivery, my dad started using a personal AI assistant (Grok Bot) to keep our order and shipping notifications on track at all times. That way, if something starts to go wrong, we catch it fast.
 
-1. **Higher-quality shipping labels.** Henry and his father invested in a higher-quality printer to produce clearer shipping labels. This practice is intended to reduce delivery problems such as the non-delivery complaint described above.
-2. **Continuous order and shipping monitoring.** Following the missed-delivery complaint, Henry's father began using a personal AI assistant (Grok Bot) to keep order and shipping notifications on track at all times, so that potential issues are identified and addressed promptly.
+To us, this is what listening to customers looks like: even one complaint is something to act on. Our feedback since then fits that. Everything in the three most recent eBay periods is positive, and eBay shows us at 100% positive for the past 12 months. Still, eBay only gives rough time periods and this is just looking back at existing data, so I can't prove these changes caused our record.
 
-These practices reflect the sellers' approach of treating customer experience, including a single complaint, as information to act on. The subsequent feedback record is consistent with this approach: every sales-feedback entry captured in the three most recent eBay periods is positive, and eBay reports 100% positive feedback over the past 12 months. Because eBay provides only coarse time periods and this analysis is observational, however, it cannot establish that these practices caused the subsequent record.
+## What this doesn't prove
 
-## Limitations
+- **Only 43 written comments.** Just 22.9% of our sales feedback (n = 43) has words a buyer actually wrote.
+- **Automated feedback isn't opinion.** It shows an order went through with no reported problem, not what the buyer thought. I only used it to show consistency.
+- **No exact dates.** eBay only gives four time periods, so I can't track changes precisely. Two periods have just 1 or 2 written comments.
+- **eBay feedback skews positive.** It's known to be mostly positive (Resnick & Zeckhauser, 2002), and unhappy buyers sometimes don't leave feedback at all.
+- **2 entries missing.** I captured 257 of 259 entries, so my counts are a little lower than eBay's totals.
+- **Keyword sorting isn't perfect.** I sorted comments by keywords, not by trained readers, so some got mislabeled. For example, "fast" in "fast transaction," or one comment counted as communication that actually says communication "was not necessary."
+- **VADER can miss things.** It scored our one complaint as positive.
+- **Our practices are self-reported.** "What we do differently" is our own account.
+- **Can't prove cause.** This looks back at existing feedback. It shows what goes together, not what caused what.
 
-- **Small sample of written comments.** Only 22.9% of sales feedback (n = 43) contains buyer-written text that could be coded and scored.
-- **Nature of automated feedback.** eBay automated entries indicate that a transaction was completed without a reported issue; they do not capture a buyer's own evaluation. They were therefore used only as a measure of consistency, not as buyer opinion.
-- **Coarse time information.** eBay provides only four time periods, not dates, so change over time cannot be measured precisely, and two periods contain only one or two written comments.
-- **Positive skew.** eBay feedback is known to be overwhelmingly positive (Resnick & Zeckhauser, 2002), and dissatisfied buyers may choose not to leave feedback at all.
-- **Incomplete capture.** 2 of the 259 listed feedback entries could not be captured, and captured counts are slightly lower than eBay's headline totals.
-- **Keyword coding.** Themes were coded by keyword rather than by trained human raters, so some comments may be miscoded (for example, "fast" in "fast transaction," or a comment coded as communication that states communication "was not necessary"). No inter-rater reliability was computed.
-- **Sentiment model limits.** VADER scored the one negative comment as positive, showing that it can miss complaints stated in neutral language.
-- **Seller-reported practices.** The practices described in *Seller Practices Informed by Customer Experience* are based on the sellers' account and were not independently verified.
-- **Correlational design.** This is an observational analysis; it cannot establish that any seller practice caused the ratings.
+## What's in this repo
 
-## Repository Structure
-
-| Path | Contents |
+| Path | What it is |
 |---|---|
-| `data/raw_feedback_public.json` | Captured public feedback, with usernames removed |
-| `data/profile_summary.json` | Public profile-level figures |
-| `data/buyer_comments.csv` | Cleaned sample of buyer-written comments, with themes and sentiment scores |
-| `analysis/codebook.json` | Keyword codebook for theme coding |
-| `analysis/analyze.py` | Full analysis script |
+| `data/raw_feedback_public.json` | Our public feedback, usernames removed |
+| `data/profile_summary.json` | Numbers from our public eBay profile |
+| `data/buyer_comments.csv` | Buyer comments with topics and sentiment scores |
+| `analysis/codebook.json` | Keyword list used to sort comments into topics |
+| `analysis/analyze.py` | The full analysis script |
 | `results/` | Summary tables (CSV) |
-| `figures/` | Figures 1–4 |
+| `figures/` | Figures 1 to 4 |
 
-## References
+## Sources
 
 Hutto, C. J., & Gilbert, E. (2014). VADER: A parsimonious rule-based model for sentiment analysis of social media text. *Proceedings of the International AAAI Conference on Web and Social Media, 8*(1), 216–225.
 
