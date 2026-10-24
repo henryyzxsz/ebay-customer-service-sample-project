@@ -1,0 +1,10 @@
+{
+  "_note": "Transparent keyword codebook. A comment is coded with a theme if any pattern (case-insensitive regular expression) matches. One comment can receive several themes.",
+  "Shipping speed": ["\\bfast\\b", "\\bquick(ly)?\\b", "\\bpromptly\\b", "\\bin 3 days\\b"],
+  "Communication / service": ["communicat", "\\bservice\\b", "right on top", "return was quickly accepted", "did everything right"],
+  "Item as described / quality": ["as describ", "as noted", "as shown", "described", "condition", "quality", "works? well", "working great", "exactly what", "no issues"],
+  "Packaging": ["packag", "\\bpacked\\b", "\\bpacking\\b", "protected"],
+  "Price / value": ["\\bprice", "\\bvalue\\b", "\\bdeal\\b", "\\bfree\\b"],
+  "Would buy again / recommend": ["\\bagain\\b", "recommend"],
+  "General praise": ["\\bgreat\\b", "excellent", "exelente", "perfect", "a\\+", "awesome", "amazing", "\\bnice\\b", "\\bgood\\b", "pleased", "happy", "satisfied", "\\bwow\\b", "pleasant", "\\bthank", "\\bthks\\b"]
+}

@@ -1,0 +1,5 @@
+time_bucket,n_comments,mean_vader,positive,negative
+More than a year ago,1,0.273,0,1
+Past year,24,0.593,24,0
+Past 6 months,16,0.604,16,0
+Past month,2,0.442,2,0

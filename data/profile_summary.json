@@ -1,0 +1,33 @@
+{
+ "user": "zhashuzhan",
+ "total_feedback_shown": 259,
+ "headline_count": 246,
+ "positive_12m_pct": 100,
+ "member_since": "Jun-02-15",
+ "top_rated": true,
+ "ratings": {
+  "positive": {
+   "1m": 19,
+   "6m": 127,
+   "12m": 190
+  },
+  "neutral": {
+   "1m": 0,
+   "6m": 0,
+   "12m": 0
+  },
+  "negative": {
+   "1m": 0,
+   "6m": 0,
+   "12m": 0
+  }
+ },
+ "detailed_seller_ratings_12m": {
+  "Accurate description": "(33 ratings)",
+  "Reasonable shipping cost": "(39)",
+  "Shipping speed": "(40)",
+  "Communication": "(40)"
+ },
+ "automated_feedback": 145,
+ "revised": 0
+}
