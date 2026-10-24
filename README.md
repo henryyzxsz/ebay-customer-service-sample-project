@@ -38,7 +38,7 @@ The entries came from three places:
 
 *Note.* Buyer comments plus automated feedback make up our **sales feedback** (n = 188). Of the 43 buyer comments, 42 were positive and 1 was negative.
 
-**About the automated feedback.** When an order goes through with no reported problem, eBay leaves positive feedback for the buyer automatically. Every one of these says "Order delivered on time with no issues." There's no buyer opinion in them, so I didn't treat them as reviews. I counted them as what they are: orders that went smoothly.
+**About the automated feedback.** When an order goes through with no reported problem, eBay automatically leaves positive feedback on the buyer's behalf. Every one of these says "Order delivered on time with no issues." There's no buyer opinion in them, so I didn't treat them as reviews. I counted them as what they are: orders that went smoothly.
 
 I removed all buyer usernames. They don't appear anywhere in this project.
 
@@ -147,7 +147,7 @@ These are copied exactly, typos and all. The time period is in brackets.
 
 *This part is our own account of what we do. It isn't something the feedback data can check.*
 
-Our only negative review came from a buyer who never got their order. After that, my dad and I focused on making sure every order gets where it's going:
+Our only negative review came from a buyer who never got their order. My dad and I do two things to make sure every order gets where it's going:
 
 1. **Clearer shipping labels.** We put money into a better printer so our shipping labels come out clearer. The goal is to cut down on delivery problems like the one that buyer had.
 2. **Keeping an eye on every order.** After that missed delivery, my dad started using a personal AI assistant (Grok Bot) to keep our order and shipping notifications on track at all times. That way, if something starts to go wrong, we catch it fast.
