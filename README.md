@@ -65,7 +65,7 @@ The script produces the cleaned sample (`data/buyer_comments.csv`), summary tabl
 
 eBay reports **100% positive feedback** for the shop over the past 12 months, with **no neutral or negative ratings** in the past 1, 6, or 12 months. All four Detailed Seller Ratings (accurate description, reasonable shipping cost, shipping speed, and communication) are displayed at the maximum of 5 stars, and the shop holds eBay's Top Rated Seller status.
 
-In the captured sales feedback, **99.5% of entries were positive**. **77.1%** were eBay-recorded, problem-free transactions and 22.9% were comments written by buyers (Figure 1). The large share of automated entries indicates a high volume of orders completed without any reported issue, a direct measure of consistently smooth transactions.
+In the captured sales feedback, **99.5% of entries were positive**. **77.1%** were eBay-recorded, problem-free transactions and 22.9% were comments written by buyers (Figure 1). The large share of automated entries indicates a high volume of orders completed without any reported issue, evidence of consistently smooth transactions.
 
 ![Figure 1. Composition of sales feedback](figures/fig1_feedback_by_source.png)
 
