@@ -82,9 +82,9 @@ In the captured sales feedback, **99.5% of entries were positive**. **77.1%** we
 
 *Note.* Sales feedback includes buyer-written and eBay automated entries. The single entry in the earliest period is the shop's only negative feedback.
 
-![Figure 4. Positive vs. negative sales feedback by eBay time period](figures/fig4_pos_neg_by_bucket.png)
+![Figure 2. Positive vs. negative sales feedback by eBay time period](figures/fig2_pos_neg_by_period.png)
 
-*Figure 4.* Percentage of positive and negative sales feedback in each eBay time period (n per period shown under each bar).
+*Figure 2.* Percentage of positive and negative sales feedback in each eBay time period (n per period shown under each bar). See also Table 1.
 
 ### What Buyers Wrote About
 
@@ -102,11 +102,11 @@ In the captured sales feedback, **99.5% of entries were positive**. **77.1%** we
 
 *Note.* n = 42 positive buyer-written comments. A comment can mention more than one theme, so percentages sum to more than 100%.
 
-Beyond general praise, **73.8%** of positive comments mentioned at least one concrete reliability or service theme (shipping speed, communication/service, accurate description, or packaging), and **50.0%** mentioned two or more specific themes (Figure 2).
+Beyond general praise, **73.8%** of positive comments mentioned at least one concrete reliability or service theme (shipping speed, communication/service, accurate description, or packaging), and **50.0%** mentioned two or more specific themes (Figure 3).
 
-![Figure 2. What buyers wrote about](figures/fig2_theme_frequency.png)
+![Figure 3. What buyers wrote about](figures/fig3_theme_frequency.png)
 
-*Figure 2.* Percentage of positive buyer-written comments mentioning each theme (n = 42).
+*Figure 3.* Percentage of positive buyer-written comments mentioning each theme (n = 42).
 
 ### Sentiment
 
@@ -125,9 +125,9 @@ The mean compound score across all positive buyer-written comments was 0.590. Se
 
 VADER scored the single negative comment as mildly *positive* (+0.273). Its text ("I never received the item on top of being charged…") states the problem factually and contains no strongly negative words, so the model missed a clearly negative experience. This illustrates that automated sentiment tools can misread complaints that are expressed without emotional language.
 
-![Figure 3. Sentiment of buyer-written comments by eBay time period](figures/fig3_sentiment_by_bucket.png)
+![Figure 4. Sentiment of buyer-written comments by eBay time period](figures/fig4_sentiment_by_period.png)
 
-*Figure 3.* Mean VADER compound score of buyer-written comments in each eBay time period (n per period shown under each bar).
+*Figure 4.* Mean VADER compound score of buyer-written comments in each eBay time period (n per period shown under each bar).
 
 ### Representative Comments
 
