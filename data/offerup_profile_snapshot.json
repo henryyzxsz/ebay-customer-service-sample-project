@@ -1,0 +1,24 @@
+{
+ "platform": "OfferUp",
+ "source_url": "https://offerup.com/p/86708566",
+ "accessed": "2026-10-29",
+ "note": "One-time snapshot of the public profile page. Compliments are preset tags buyers can pick (more than one per rating). Written review texts are not shown on the public web page, and no dates are given.",
+ "display_name": "Shun (warehouse)",
+ "location": "City of Industry, CA",
+ "truyou_verified": true,
+ "joined": "Nov 2020",
+ "star_rating_shown": "5 stars (no numeric average shown)",
+ "ratings_count": 1222,
+ "items_sold": 4817,
+ "reply_rate_pct": 85,
+ "confirmed": ["phone", "email", "Facebook"],
+ "compliment_counts": {
+  "Item as described": 668,
+  "Communicative": 666,
+  "Friendly": 638,
+  "Reliable": 572,
+  "On time": 495,
+  "Fast shipping": 128,
+  "Good packaging": 114
+ }
+}

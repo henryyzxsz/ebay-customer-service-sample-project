@@ -1,6 +1,7 @@
 """Consumer-psychology analysis of written buyer feedback for eBay seller zhashuzhan.
 
-Input : data/raw_feedback_public.json (public feedback page, as captured) and data/profile_summary.json
+Input : data/raw_feedback_public.json (public feedback page, as captured), data/profile_summary.json,
+        and data/offerup_profile_snapshot.json (public OfferUp profile snapshot)
 Output: data/buyer_comments.csv, results/*.csv, figures/*.png
 Buyer usernames are dropped and never written to any output.
 """
@@ -116,3 +117,17 @@ print("overall mean VADER (positive comments):", round(pos["vader_compound"].mea
 print("overall mean VADER (all):", round(b.vader_compound.mean(), 3))
 print("comments with 2+ themes excl. general praise:", int((b[b.rating=='positive'][themes[:-1]].sum(axis=1) >= 2).sum()))
 print("comments mentioning any of shipping/described/packaging:", int((b[b.rating=='positive'][themes[:4]].sum(axis=1) >= 1).sum()))
+
+# 5. OfferUp compliments (public profile snapshot)
+ou = json.load(open(ROOT / "data/offerup_profile_snapshot.json"))
+n_ou = ou["ratings_count"]
+comp = pd.Series(ou["compliment_counts"], name="count")
+ou_tbl = pd.DataFrame({"count": comp, "pct_of_ratings": (comp / n_ou * 100).round(1)}).sort_values("count", ascending=False)
+ou_tbl.to_csv(ROOT / "results/offerup_compliments.csv")
+oc = ou_tbl["pct_of_ratings"][::-1]
+ax = oc.plot.barh(color="#2e86c1", figsize=(7, 3.6))
+ax.set_xlim(0, 100); ax.set_xlabel("% of OfferUp ratings with this compliment")
+ax.set_title("Figure 5. What OfferUp buyers complimented")
+for i, v in enumerate(oc): ax.text(v + 1, i, f"{v:.1f}%", va="center")
+plt.tight_layout(); plt.savefig(F / "fig5_offerup_compliments.png"); plt.close()
+print(ou_tbl)

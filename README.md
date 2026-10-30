@@ -10,6 +10,8 @@
 
 My dad and I run a small eBay resale shop (seller ID *zhashuzhan*). We've been on eBay since June 2015, and the shop is a Top Rated Seller. I went through our public feedback to see what buyers actually talk about when they review us, and whether their happiness holds steady over time. Short version: 99.5% of our sales feedback is positive, and buyers mostly care about fast shipping, getting what was described, and good packaging.
 
+My parents also run a shop on OfferUp, and I help run it too. So I added its public ratings as a second source to see if buyers there say the same kinds of things.
+
 ## What I wanted to find out
 
 When buyers leave feedback for a small online shop, what do they talk about? And how steady is their satisfaction over time?
@@ -45,6 +47,15 @@ I removed all buyer usernames. They don't appear anywhere in this project.
 **Themes.** I sorted each buyer comment into topics using a simple keyword list (`analysis/codebook.json`). The topics were shipping speed, communication/service, item as described/quality, packaging, price/value, would buy again/recommend, and general praise. One comment can hit more than one topic.
 
 **Sentiment.** I ran each comment through VADER (Hutto & Gilbert, 2014), a free tool that scores how positive the wording is. The sentiment score goes from -1 (very negative) to 1 (very positive).
+
+**OfferUp data.** I also looked at the public OfferUp profile for my parents' shop, "Shun (warehouse)," a TruYou-verified seller in City of Industry, CA, on OfferUp since Nov 2020 (https://offerup.com/p/86708566). This is a one-time snapshot, read on Oct 29, 2026 and saved in `data/offerup_profile_snapshot.json`. The page showed:
+
+- 5 stars from 1,222 ratings (no exact average shown)
+- 4,817 items sold and an 85% reply rate
+- Confirmed phone, email, and Facebook
+- How many times buyers picked each preset compliment: Item as described (668), Communicative (666), Friendly (638), Reliable (572), On time (495), Fast shipping (128), Good packaging (114)
+
+OfferUp's public web page doesn't show the written reviews or any dates, so I only used the compliment counts. I turned each one into a percent of all 1,222 ratings, e.g., 668 / 1,222 = 54.7%.
 
 To rerun everything:
 
@@ -133,6 +144,30 @@ These are copied exactly, typos and all. The time period is in brackets.
 4. *"Item as described, extremely well protected/ packaged. arrived in mint condition. Only complaint is user manual is in extremely small print ."* [Past month]
 5. *"I never received the item on top of being charged for the item as well."* [More than a year ago; our only negative review]
 
+### On OfferUp, too
+
+My parents' OfferUp shop shows **5 stars** and an **85% reply rate**. When OfferUp buyers rate a seller, they can tap preset compliments. Here's how often each one got picked:
+
+**Table 4.** OfferUp compliments, as a share of all ratings
+
+| Compliment | % of ratings |
+|---|---|
+| Item as described | 54.7% |
+| Communicative | 54.5% |
+| Friendly | 52.2% |
+| Reliable | 46.8% |
+| On time | 40.5% |
+| Fast shipping | 10.5% |
+| Good packaging | 9.3% |
+
+*Note.* Buyers can pick more than one compliment, so this adds up to more than 100%.
+
+![Figure 5. What OfferUp buyers complimented](figures/fig5_offerup_compliments.png)
+
+*Figure 5.* How often OfferUp buyers picked each compliment, as a percent of all ratings.
+
+**Same pattern, two platforms.** On eBay, buyers mostly praised shipping, getting what was described, and packaging. On OfferUp, the top two compliments are "Item as described" (54.7%) and "Communicative" (54.5%), with "Friendly" and "Reliable" close behind. So on both sites, getting what was promised comes up near the top. OfferUp buyers mention communication a lot more than eBay buyers did (54.5% vs. 14.3%), and shipping and packaging a lot less. That might be because a lot of OfferUp sales are local meetups instead of shipped orders, but the profile doesn't say, so that's just a guess. Either way, two different platforms with different buyers point to the same things: be honest about the item, stay in touch, and follow through. That's what we mean by listening to our customers.
+
 ### What it means
 
 **We're consistent.** Every piece of sales feedback in the three most recent periods is positive. eBay has us at 100% positive for the past year. And 77.1% of our sales feedback is orders that went through with no problem at all. For a small family shop selling lots of different products, that steadiness is the main takeaway.
@@ -164,6 +199,10 @@ To us, this is what listening to customers looks like: even one complaint is som
 - **Keyword sorting isn't perfect.** I sorted comments by keywords, not by trained readers, so some got mislabeled. For example, "fast" in "fast transaction," or one comment counted as communication that actually says communication "was not necessary."
 - **VADER can miss things.** It scored our one complaint as positive.
 - **Our practices are self-reported.** "What we do differently" is our own account.
+- **OfferUp compliments are preset tags.** Buyers tap from a fixed list instead of writing their own words, so they're not the same as written opinions, and they can't be directly compared with the eBay topic percentages.
+- **No OfferUp review texts.** The written reviews aren't shown on the public web page, so I couldn't read or quote them.
+- **OfferUp is a one-time snapshot.** It's from a single day and has no dates, so I can't see any change over time there.
+- **Both platforms skew positive.** Ratings on eBay and OfferUp both lean positive, and unhappy buyers may just not rate at all.
 - **Can't prove cause.** This looks back at existing feedback. It shows what goes together, not what caused what.
 
 ## What's in this repo
@@ -172,11 +211,12 @@ To us, this is what listening to customers looks like: even one complaint is som
 |---|---|
 | `data/raw_feedback_public.json` | Our public feedback, usernames removed |
 | `data/profile_summary.json` | Numbers from our public eBay profile |
+| `data/offerup_profile_snapshot.json` | Snapshot of our public OfferUp profile (source URL and date read) |
 | `data/buyer_comments.csv` | Buyer comments with topics and sentiment scores |
 | `analysis/codebook.json` | Keyword list used to sort comments into topics |
 | `analysis/analyze.py` | The full analysis script |
 | `results/` | Summary tables (CSV) |
-| `figures/` | Figures 1 to 4 |
+| `figures/` | Figures 1 to 5 |
 
 ## Sources
 
