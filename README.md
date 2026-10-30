@@ -189,6 +189,18 @@ Our only negative review came from a buyer who never got their order. My dad and
 
 To us, this is what listening to customers looks like: even one complaint is something to act on. Our feedback since then fits that. Everything in the three most recent eBay periods is positive, and eBay shows us at 100% positive for the past 12 months. Still, eBay only gives rough time periods and this is just looking back at existing data, so I can't prove these changes caused our record.
 
+## What we can still work on
+
+Listening to customers also means paying attention to what they *don't* say as much. Our feedback is strong, but a few things stood out as next steps for my dad and me:
+
+- **Answer every message on OfferUp.** Our OfferUp reply rate is 85%, which means some buyer messages still slip through. Since "Communicative" is one of our top compliments there (54.5%), we want to get that reply rate as close to 100% as we can.
+- **Keep buyers posted on eBay.** Only 14.3% of positive eBay comments mention communication. We could reach out more on our own, like a quick thank-you when someone orders and a heads-up once it ships.
+- **Follow every package all the way to the door.** Our one negative review was an order that never showed up. Building on the AI notification tracking my dad already uses, we want to check tracking until every order is delivered and message the buyer first if a package gets stuck.
+- **Take a closer look at shipping and packaging on OfferUp.** "Fast shipping" (10.5%) and "Good packaging" (9.3%) are our least-picked OfferUp compliments. A lot of that is probably because many OfferUp sales are local pickups that never get shipped, so it's not necessarily a weak spot. Still, for the orders we do ship, we want buyers to notice how fast and well-packed they are.
+- **Ask for more written feedback.** Only 22.9% of our eBay sales feedback is written by buyers; the rest is automated. Politely inviting buyers to leave a comment would give us more real opinions to learn from.
+
+None of these are big problems. They're just the next things to get better at, based on what buyers are telling us.
+
 ## What this doesn't prove
 
 - **Only 43 written comments.** Just 22.9% of our sales feedback (n = 43) has words a buyer actually wrote.
@@ -203,6 +215,7 @@ To us, this is what listening to customers looks like: even one complaint is som
 - **No OfferUp review texts.** The written reviews aren't shown on the public web page, so I couldn't read or quote them.
 - **OfferUp is a one-time snapshot.** It's from a single day and has no dates, so I can't see any change over time there.
 - **Both platforms skew positive.** Ratings on eBay and OfferUp both lean positive, and unhappy buyers may just not rate at all.
+- **The goals come from limited data.** "What we can still work on" is based on the same small set of written comments, preset OfferUp tags, and one snapshot, so it's a starting point, not a full review of our service.
 - **Can't prove cause.** This looks back at existing feedback. It shows what goes together, not what caused what.
 
 ## What's in this repo
